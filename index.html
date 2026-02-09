@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Witcher Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Header -->
+    <header class="app-header">
+      <h1>The Witcher Quiz App</h1>
+    </header>
+
+    <!-- Login Screen -->
+    <section id="login-screen" class="card active">
+      <h2>Enter the Quiz</h2>
+      <input type="text" id="name" placeholder="Enter Your Name" />
+      <input type="text" id="roll" placeholder="Enter Roll Number" />
+      <button onclick="startQuiz()">Start Quiz</button>
+      <p id="login-error" class="error"></p>
+    </section>
+
+    <!-- Instructions -->
+    <section id="instruction-screen" class="card">
+      <h2>Quiz Rules</h2>
+      <ul>
+        <li>Fullscreen mode is required</li>
+        <li>Do not switch tabs</li>
+        <li>Do not refresh or go back</li>
+        <li>3 violations = Auto submission</li>
+      </ul>
+      <button onclick="beginQuiz()">I Understand</button>
+    </section>
+
+    <!-- Quiz Screen -->
+    <section id="quiz-screen" class="card">
+      <div class="quiz-top">
+        <span id="question-count"></span>
+        <span id="violation-count">Violations: 0</span>
+      </div>
+
+      <h3 id="question-text">Question appears here</h3>
+
+      <div id="options-container" class="options"></div>
+
+      <div class="quiz-buttons">
+        <button onclick="prevQuestion()">Previous</button>
+        <button onclick="nextQuestion()">Next</button>
+        <button onclick="submitQuiz()">Submit Quiz</button>
+      </div>
+    </section>
+
+    <!-- Result Screen -->
+    <section id="result-screen" class="card">
+      <h2>Quiz Result</h2>
+      <p id="final-score"></p>
+      <p id="final-status"></p>
+      <button onclick="showLeaderboard()">View Leaderboard</button>
+    </section>
+
+    <!-- Leaderboard -->
+    <section id="leaderboard-screen" class="card">
+      <h2>Leaderboard</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboard-body"></tbody>
+      </table>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
